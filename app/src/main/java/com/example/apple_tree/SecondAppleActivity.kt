@@ -3,15 +3,15 @@ package com.example.apple_tree
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.text.InputType
 import android.view.inputmethod.EditorInfo
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
-import com.example.apple_tree.databinding.ActivityFirstAppleBinding
+import com.example.apple_tree.databinding.ActivitySecondAppleBinding
 
-class FirstAppleActivity : AppCompatActivity() {
-    val binding by lazy {ActivityFirstAppleBinding.inflate(layoutInflater)}
+class SecondAppleActivity : AppCompatActivity() {
+    val binding by lazy { ActivitySecondAppleBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -23,11 +23,9 @@ class FirstAppleActivity : AppCompatActivity() {
 
         binding.editTextTextMultiLine.addTextChangedListener {
             var str = binding.editTextTextMultiLine.text.toString()
-            editor.putString("1st", str)
+            editor.putString("2nd", str)
         }
-
-        val intent = Intent(this, SecondAppleActivity::class.java)
-        binding.next.setOnClickListener {startActivity(intent)}
-
+        val intent = Intent(this, ThirdAppleActivity::class.java)
+        binding.button.setOnClickListener {startActivity(intent)}
     }
 }
