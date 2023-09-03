@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import com.example.apple_tree.databinding.ActivityFirstAppleBinding
+import com.kakao.sdk.common.util.Utility
 
 class FirstAppleActivity : AppCompatActivity() {
     private val TAG = "FirstAppleActivity"
@@ -31,7 +32,7 @@ class FirstAppleActivity : AppCompatActivity() {
 
         val intent = Intent(this, SecondAppleActivity::class.java)
         binding.next.setOnClickListener {
-            if(str == "") {
+            if(binding.editTextTextMultiLine.text.toString().equals("")) {
                 Toast.makeText(this, "First Apple can't be empty", Toast.LENGTH_LONG).show()
             }
             else {
